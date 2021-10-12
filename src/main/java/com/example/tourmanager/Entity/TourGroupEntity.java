@@ -1,7 +1,10 @@
 package com.example.tourmanager.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "tourgroup")
 public class TourGroupEntity {
@@ -24,11 +27,18 @@ public class TourGroupEntity {
     @Column(name = "description",columnDefinition = "Text")
     private String description;
 
-    @Column(name = "tourid")
-    private Long tourId;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "tourgourp_id")
+    private List<CostEntity> costs = new ArrayList<>();
 
-    @Column(name = "staffid")
-    private Long staffId;
+    @ManyToMany(mappedBy = "tourGroups")
+    private List<TouristEntity> tourists = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "tourGroups")
+    private List<StaffEntity> staffs = new ArrayList<>();
 
     public String getTourGroupCode() {
         return tourGroupCode;
@@ -70,19 +80,4 @@ public class TourGroupEntity {
         this.description = description;
     }
 
-    public Long getTourId() {
-        return tourId;
-    }
-
-    public void setTourId(Long tourId) {
-        this.tourId = tourId;
-    }
-
-    public Long getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(Long staffId) {
-        this.staffId = staffId;
-    }
 }

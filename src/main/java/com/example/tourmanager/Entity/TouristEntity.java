@@ -1,7 +1,10 @@
 package com.example.tourmanager.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name="tourist")
 public class TouristEntity {
@@ -32,6 +35,13 @@ public class TouristEntity {
 
     @Column(name = "email")
     private String email;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "tourgroup_tourist",
+            joinColumns = @JoinColumn(name ="tourist_id"),
+            inverseJoinColumns = @JoinColumn(name = "tourgroup_id")
+    )
+    private List<TourGroupEntity> tourGroups = new ArrayList<>();
 
     public Long getId() {
         return id;

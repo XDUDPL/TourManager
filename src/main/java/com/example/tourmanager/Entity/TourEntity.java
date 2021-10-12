@@ -1,6 +1,8 @@
 package com.example.tourmanager.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name ="tour")
@@ -12,9 +14,6 @@ public class TourEntity {
     @Column(name = "tourCode")
     private String tourCode;
 
-    @Column(name = "typetourid")
-    private Long typeTourId;
-
     @Column(name = "name")
     private String name;
 
@@ -24,20 +23,23 @@ public class TourEntity {
     @Column(name = "description",columnDefinition = "TEXT")
     private String description;
 
+    @ManyToMany(mappedBy = "tours")
+    private List<PlaceEntity> places = new ArrayList<>();
+
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "tour_id")
+    private List<TourGroupEntity> tourGourp = new ArrayList<>();
+
     public String getTourCode() {
         return tourCode;
     }
 
     public void setTourCode(String tourCode) {
         this.tourCode = tourCode;
-    }
-
-    public Long getTypeTourId() {
-        return typeTourId;
-    }
-
-    public void setTypeTourId(Long typeTourId) {
-        this.typeTourId = typeTourId;
     }
 
     public String getName() {
@@ -64,3 +66,4 @@ public class TourEntity {
         this.description = description;
     }
 }
+
