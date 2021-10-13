@@ -103,4 +103,12 @@ public class TouristEntity extends BaseEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public List<TourGroupEntity> getTourGroups() {
+        return tourGroups;
+    }
+
+    public void setTourGroups(List<TourGroupEntity> tourGroups) {
+        this.tourGroups = tourGroups;
+    }
 }

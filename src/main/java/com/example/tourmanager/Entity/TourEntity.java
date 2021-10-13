@@ -62,5 +62,21 @@ public class TourEntity extends BaseEntity{
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<PlaceEntity> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(List<PlaceEntity> places) {
+        this.places = places;
+    }
+
+    public List<TourGroupEntity> getTourGourp() {
+        return tourGourp;
+    }
+
+    public void setTourGourp(List<TourGroupEntity> tourGourp) {
+        this.tourGourp = tourGourp;
+    }
 }
 

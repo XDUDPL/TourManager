@@ -24,4 +24,12 @@ public class TypeTourEntity extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<TourEntity> getTour() {
+        return Tour;
+    }
+
+    public void setTour(List<TourEntity> tour) {
+        Tour = tour;
+    }
 }

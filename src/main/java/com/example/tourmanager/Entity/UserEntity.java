@@ -58,4 +58,12 @@ public class UserEntity extends BaseEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
+    }
 }

@@ -24,4 +24,12 @@ public class PlaceEntity extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<TourEntity> getTours() {
+        return tours;
+    }
+
+    public void setTours(List<TourEntity> tours) {
+        this.tours = tours;
+    }
 }
