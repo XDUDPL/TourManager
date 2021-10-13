@@ -7,10 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "staff")
-public class StaffEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+public class StaffEntity extends BaseEntity{
 
     @Column(name = "identityNumber")
     private String identityNumber;

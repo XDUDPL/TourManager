@@ -7,10 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name="tourist")
-public class TouristEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+public class TouristEntity extends BaseEntity {
 
     @Column(name = "touristcode")
     private String touristCode;
@@ -42,11 +39,6 @@ public class TouristEntity {
             inverseJoinColumns = @JoinColumn(name = "tourgroup_id")
     )
     private List<TourGroupEntity> tourGroups = new ArrayList<>();
-
-    public Long getId() {
-        return id;
-    }
-
 
     public String getTouristCode() {
         return touristCode;

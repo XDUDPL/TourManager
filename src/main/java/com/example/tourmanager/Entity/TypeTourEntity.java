@@ -6,10 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name ="typetour")
-public class TypeTourEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class TypeTourEntity extends BaseEntity {
 
     @Column(name = "name")
     private String name;
