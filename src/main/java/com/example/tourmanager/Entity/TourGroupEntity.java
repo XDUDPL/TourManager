@@ -7,10 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tourgroup")
-public class TourGroupEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class TourGroupEntity extends BaseEntity {
 
     @Column(name = "tourgroupcode")
     private String tourGroupCode;
@@ -80,4 +77,27 @@ public class TourGroupEntity {
         this.description = description;
     }
 
+    public List<CostEntity> getCosts() {
+        return costs;
+    }
+
+    public void setCosts(List<CostEntity> costs) {
+        this.costs = costs;
+    }
+
+    public List<TouristEntity> getTourists() {
+        return tourists;
+    }
+
+    public void setTourists(List<TouristEntity> tourists) {
+        this.tourists = tourists;
+    }
+
+    public List<StaffEntity> getStaffs() {
+        return staffs;
+    }
+
+    public void setStaffs(List<StaffEntity> staffs) {
+        this.staffs = staffs;
+    }
 }

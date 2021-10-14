@@ -6,10 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "place")
-public class PlaceEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class PlaceEntity extends BaseEntity {
 
     @Column(name = "name")
     private String name;
@@ -26,5 +23,13 @@ public class PlaceEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<TourEntity> getTours() {
+        return tours;
+    }
+
+    public void setTours(List<TourEntity> tours) {
+        this.tours = tours;
     }
 }

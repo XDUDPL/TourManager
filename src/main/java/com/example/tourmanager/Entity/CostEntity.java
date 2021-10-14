@@ -4,10 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cost")
-public class CostEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class CostEntity extends BaseEntity{
 
     @Column(name = "cost")
     private Long cost;
