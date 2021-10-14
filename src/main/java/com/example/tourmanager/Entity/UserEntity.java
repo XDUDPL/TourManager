@@ -20,13 +20,6 @@ public class UserEntity extends BaseEntity {
     @Column(name ="status")
     private Integer status;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name ="user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private List<RoleEntity> roles = new ArrayList<>();
-
     public String getFullname() {
         return fullname;
     }
@@ -59,11 +52,4 @@ public class UserEntity extends BaseEntity {
         this.password = password;
     }
 
-    public List<RoleEntity> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<RoleEntity> roles) {
-        this.roles = roles;
-    }
 }

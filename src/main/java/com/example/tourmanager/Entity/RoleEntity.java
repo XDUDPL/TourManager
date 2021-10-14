@@ -14,8 +14,13 @@ public class RoleEntity extends BaseEntity{
     @Column(name ="code")
     private String code;
 
-    @ManyToMany(mappedBy = "roles")
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "role_id")
     private List<UserEntity> users = new ArrayList<>();
+
 
     public String getName() {
         return name;
