@@ -16,14 +16,14 @@ public class DiaDiemEntity extends BaseEntity{
     private String moTa;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private DiaDiemEntity diaDiem;
+    private ChiTietTourEntity chiTietTour;
 
-    public DiaDiemEntity getDiaDiem() {
-        return diaDiem;
+    public ChiTietTourEntity getChiTietTour() {
+        return chiTietTour;
     }
 
-    public void setDiaDiem(DiaDiemEntity diaDiem) {
-        this.diaDiem = diaDiem;
+    public void setChiTietTour(ChiTietTourEntity chiTietTour) {
+        this.chiTietTour = chiTietTour;
     }
 
     public String getThanhPho() {

@@ -14,7 +14,7 @@ public class ChiTietTourEntity extends BaseEntity {
     private TourEntity tour;
 
     @OneToMany(
-            mappedBy = "diaDiem",
+            mappedBy = "chiTietTour",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )

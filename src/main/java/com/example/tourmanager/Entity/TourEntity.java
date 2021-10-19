@@ -21,7 +21,7 @@ public class TourEntity extends BaseEntity{
     private List<LoaiTourEntity> loaiTourEntities = new ArrayList<>();
 
     @OneToMany(
-            mappedBy = "doan",
+            mappedBy = "tour",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
