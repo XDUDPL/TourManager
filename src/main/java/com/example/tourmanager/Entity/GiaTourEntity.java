@@ -1,9 +1,9 @@
 package com.example.tourmanager.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "giatour")
@@ -16,6 +16,21 @@ public class GiaTourEntity extends BaseEntity{
 
     @Column(name = "ghichu")
     private String ghiChu;
+
+    @OneToMany(
+            mappedBy = "giaTour",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<TourEntity> tours = new ArrayList<>();
+
+    public List<TourEntity> getTours() {
+        return tours;
+    }
+
+    public void setTours(List<TourEntity> tours) {
+        this.tours = tours;
+    }
 
     public Long getGiaTour() {
         return giaTour;

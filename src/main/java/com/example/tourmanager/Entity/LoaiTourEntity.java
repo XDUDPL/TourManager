@@ -1,8 +1,6 @@
 package com.example.tourmanager.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "loaitour")
@@ -12,6 +10,17 @@ public class LoaiTourEntity extends BaseEntity{
 
     @Column(name = "mota")
     private String moTa;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private TourEntity tour;
+
+    public TourEntity getTour() {
+        return tour;
+    }
+
+    public void setTour(TourEntity tour) {
+        this.tour = tour;
+    }
 
     public String getTenLoaiTour() {
         return tenLoaiTour;

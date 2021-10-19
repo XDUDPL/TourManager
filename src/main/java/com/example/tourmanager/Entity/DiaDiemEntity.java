@@ -1,8 +1,6 @@
 package com.example.tourmanager.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "diadiem")
@@ -16,6 +14,17 @@ public class DiaDiemEntity extends BaseEntity{
 
     @Column(name = "dd_mota")
     private String moTa;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private DiaDiemEntity diaDiem;
+
+    public DiaDiemEntity getDiaDiem() {
+        return diaDiem;
+    }
+
+    public void setDiaDiem(DiaDiemEntity diaDiem) {
+        this.diaDiem = diaDiem;
+    }
 
     public String getThanhPho() {
         return thanhPho;
