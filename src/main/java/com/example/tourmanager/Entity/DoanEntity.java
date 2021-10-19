@@ -19,7 +19,15 @@ public class DoanEntity extends BaseEntity {
     private String chiTietChuongTrinh;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private DoanEntity doan;
+    private TourEntity tour;
+
+    public TourEntity getTour() {
+        return tour;
+    }
+
+    public void setTour(TourEntity tour) {
+        this.tour = tour;
+    }
 
     public String getTenDoan() {
         return tenDoan;
