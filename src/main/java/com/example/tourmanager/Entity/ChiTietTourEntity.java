@@ -10,15 +10,12 @@ public class ChiTietTourEntity extends BaseEntity {
     @Column(name = "thutudiadiem")
     private Long thuTu;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private TourEntity tour;
 
-    @OneToMany(
-            mappedBy = "chiTietTour",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<DiaDiemEntity> diaDiem = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private DiaDiemEntity diaDiem;
 
     public TourEntity getTour() {
         return tour;
@@ -26,14 +23,6 @@ public class ChiTietTourEntity extends BaseEntity {
 
     public void setTour(TourEntity tour) {
         this.tour = tour;
-    }
-
-    public List<DiaDiemEntity> getDiaDiem() {
-        return diaDiem;
-    }
-
-    public void setDiaDiem(List<DiaDiemEntity> diaDiem) {
-        this.diaDiem = diaDiem;
     }
 
     public Long getThuTu() {

@@ -1,6 +1,8 @@
 package com.example.tourmanager.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "diadiem")
@@ -15,16 +17,14 @@ public class DiaDiemEntity extends BaseEntity{
     @Column(name = "dd_mota")
     private String moTa;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ChiTietTourEntity chiTietTour;
+    @OneToMany(
+            mappedBy = "diaDiem",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    List<ChiTietTourEntity> chiTietTourEntities = new ArrayList<>();
 
-    public ChiTietTourEntity getChiTietTour() {
-        return chiTietTour;
-    }
 
-    public void setChiTietTour(ChiTietTourEntity chiTietTour) {
-        this.chiTietTour = chiTietTour;
-    }
 
     public String getThanhPho() {
         return thanhPho;

@@ -15,51 +15,59 @@ public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "createddate")
-    @CreatedDate
-    private Date createdDate;
 
-    @Column(name = "modifieddate")
-    @LastModifiedDate
-    private Date modifiedDate;
-
-    @Column(name = "createdby")
-    @CreatedBy
-    private String createdBy;
-
-    @Column(name = "modifiedby")
-    @LastModifiedBy
-    private String modifiedBy;
-
-    public Date getCreatedDate() {
-        return createdDate;
+    public Long getId() {
+        return id;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(String modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
+    //    @Column(name = "createddate")
+//    @CreatedDate
+//    private Date createdDate;
+//
+//    @Column(name = "modifieddate")
+//    @LastModifiedDate
+//    private Date modifiedDate;
+//
+//    @Column(name = "createdby")
+//    @CreatedBy
+//    private String createdBy;
+//
+//    @Column(name = "modifiedby")
+//    @LastModifiedBy
+//    private String modifiedBy;
+//
+//    public Date getCreatedDate() {
+//        return createdDate;
+//    }
+//
+//    public void setCreatedDate(Date createdDate) {
+//        this.createdDate = createdDate;
+//    }
+//
+//    public Date getModifiedDate() {
+//        return modifiedDate;
+//    }
+//
+//    public void setModifiedDate(Date modifiedDate) {
+//        this.modifiedDate = modifiedDate;
+//    }
+//
+//    public String getCreatedBy() {
+//        return createdBy;
+//    }
+//
+//    public void setCreatedBy(String createdBy) {
+//        this.createdBy = createdBy;
+//    }
+//
+//    public String getModifiedBy() {
+//        return modifiedBy;
+//    }
+//
+//    public void setModifiedBy(String modifiedBy) {
+//        this.modifiedBy = modifiedBy;
+//    }
 }

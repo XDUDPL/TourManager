@@ -13,37 +13,39 @@ public class TourEntity extends BaseEntity{
     @Column(name = "tour_mota")
     private String moTa;
 
-    @OneToMany(
-            mappedBy = "tour",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<LoaiTourEntity> loaiTourEntities = new ArrayList<>();
-
-    @OneToMany(
-            mappedBy = "tour",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<DoanEntity> doans = new ArrayList<>();
-
-    public GiaTourEntity getGiaTour() {
-        return giaTour;
-    }
-
-    public void setGiaTour(GiaTourEntity giaTour) {
-        this.giaTour = giaTour;
-    }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private GiaTourEntity giaTour;
+    private LoaiTourEntity loaitour;
 
-    public List<LoaiTourEntity> getLoaiTourEntities() {
-        return loaiTourEntities;
+    @OneToMany(
+            mappedBy = "tour",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    List<DoanEntity> doans = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "tour",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    List<GiaTourEntity> gias = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "tour",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    List<ChiTietTourEntity> chiTietTourEntities = new ArrayList<>();
+
+
+
+    public LoaiTourEntity getLoaitour() {
+        return loaitour;
     }
 
-    public void setLoaiTourEntities(List<LoaiTourEntity> loaiTourEntities) {
-        this.loaiTourEntities = loaiTourEntities;
+    public void setLoaitour(LoaiTourEntity loaitour) {
+        this.loaitour = loaitour;
     }
 
     public String getTenTour() {

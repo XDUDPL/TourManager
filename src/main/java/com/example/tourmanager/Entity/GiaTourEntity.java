@@ -17,19 +17,15 @@ public class GiaTourEntity extends BaseEntity{
     @Column(name = "ghichu")
     private String ghiChu;
 
-    @OneToMany(
-            mappedBy = "giaTour",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<TourEntity> tours = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    private TourEntity tour;
 
-    public List<TourEntity> getTours() {
-        return tours;
+    public TourEntity getTour() {
+        return tour;
     }
 
-    public void setTours(List<TourEntity> tours) {
-        this.tours = tours;
+    public void setTour(TourEntity tour) {
+        this.tour = tour;
     }
 
     public Long getGiaTour() {
