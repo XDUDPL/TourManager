@@ -5,78 +5,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name ="tour")
+@Table(name = "tour")
 public class TourEntity extends BaseEntity{
+    @Column(name = "tour_ten")
+    private String tenTour;
 
-    @Column(name = "tourCode")
-    private String tourCode;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "price")
-    private Long price;
-
-    @Column(name = "description",columnDefinition = "TEXT")
-    private String description;
-
-    @ManyToMany(mappedBy = "tours")
-    private List<PlaceEntity> places = new ArrayList<>();
-
+    @Column(name = "tour_mota")
+    private String moTa;
 
     @OneToMany(
+            mappedBy = "tour",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    @JoinColumn(name = "tour_id")
-    private List<TourGroupEntity> tourGourp = new ArrayList<>();
+    private List<LoaiTourEntity> loaiTourEntities = new ArrayList<>();
 
-    public String getTourCode() {
-        return tourCode;
+    @OneToMany(
+            mappedBy = "doan",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<DoanEntity> doans = new ArrayList<>();
+
+    public GiaTourEntity getGiaTour() {
+        return giaTour;
     }
 
-    public void setTourCode(String tourCode) {
-        this.tourCode = tourCode;
+    public void setGiaTour(GiaTourEntity giaTour) {
+        this.giaTour = giaTour;
     }
 
-    public String getName() {
-        return name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private GiaTourEntity giaTour;
+
+    public List<LoaiTourEntity> getLoaiTourEntities() {
+        return loaiTourEntities;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLoaiTourEntities(List<LoaiTourEntity> loaiTourEntities) {
+        this.loaiTourEntities = loaiTourEntities;
     }
 
-    public Long getPrice() {
-        return price;
+    public String getTenTour() {
+        return tenTour;
     }
 
-    public void setPrice(Long price) {
-        this.price = price;
+    public void setTenTour(String tenTour) {
+        this.tenTour = tenTour;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMoTa() {
+        return moTa;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<PlaceEntity> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<PlaceEntity> places) {
-        this.places = places;
-    }
-
-    public List<TourGroupEntity> getTourGourp() {
-        return tourGourp;
-    }
-
-    public void setTourGourp(List<TourGroupEntity> tourGourp) {
-        this.tourGourp = tourGourp;
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 }
-

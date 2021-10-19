@@ -1,9 +1,9 @@
 package com.example.tourmanager.Repository;
 
-import com.example.tourmanager.Entity.TourEntity;
+import com.example.tourmanager.Entity.NguoiDiEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TourRepository extends JpaRepository<TourEntity,Long> {
+public interface NguoiDiRepository extends JpaRepository<NguoiDiEntity,Long> {
 }
